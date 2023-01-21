@@ -1,0 +1,7 @@
+.card{
+    display: grid;
+    align-items: center;
+    background-color: rgb(180, 180, 247);
+    height: 50px;
+    width: 50px;
+  }
