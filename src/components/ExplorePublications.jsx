@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { explorePublications } from "../lensQueries/explorePublications";
+import Card from "./Card/Card";
 import "./style.css";
 export default function ExplorePublications(props) {
+  const [card, setcard] = useState([1, 2]);
+
   const init = async () => {
     try {
       const request = {
@@ -13,9 +16,13 @@ export default function ExplorePublications(props) {
         limit: 24,
       };
       const response = await explorePublications(request); // To get next result replace the cursor with the value of response.pageInfo.next
-      //   console.log(response)
+      // console.log(response)
       const responseArr = response.data.explorePublications.items;
-      console.log(responseArr[0].profile.name);
+      // console.log(responseArr);
+      responseArr.forEach((item, index) => {
+        console.log("este es foreach");
+         console.log(index, item.id);
+      });
     } catch (err) {
       console.log(err);
     }
@@ -24,12 +31,16 @@ export default function ExplorePublications(props) {
   useEffect(() => {
     init();
   }, []);
-    // const [card, setcard] = useState();
-    // setcard();
-    // console.log({ card });
+
+  // setcard((response)=>{
+  //          init();
+  //   // console.log(response)
+  //   const responseArr = response.data.explorePublications.items;
+  //   return (responseArr[0].profile.name)
+
+  //       });
+  // console.log({ card });
   return (
-    <div class="card">
-      <div class="card-body">hi</div>
-    </div>
+    <Card init={()=>{ init()}}/>
   );
 }
