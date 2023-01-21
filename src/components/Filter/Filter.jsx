@@ -16,12 +16,10 @@ function Filter() {
       <div className="container d-flex flex-column mt-5">
         <span className="text-secondary mb-3">Sort by:</span>
 
-        <div className="container d-flex ">
-          <FilterPills  src={arrowdown}/>
-          <FilterPills  src={inbox}/>
-          <FilterPills  src={arrowLeftRight}/>
-         
-          
+        <div className="d-flex ">
+          <FilterPills value="Date created" src={arrowdown} />
+          <FilterPills value="Most collected" src={inbox} />
+          <FilterPills value="Most mirrored" src={arrowLeftRight} />
         </div>
       </div>
     </div>

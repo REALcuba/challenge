@@ -1,9 +1,9 @@
 import React from 'react'
 
-function FilterPills({src}) {
+function FilterPills({src, value}) {
   return (
-    <span className=" filterPill rounded-pill text-start p-1 bg-dark text-center">
-    Date created <img src={src} alt="" />
+    <span className=" filterPill rounded-pill border bg-dark text-center">
+    {value} <img src={src} alt="" />
   </span>
   )
 }
