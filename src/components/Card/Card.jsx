@@ -1,9 +1,10 @@
 import React from 'react'
 
-function Card() {
+function Card (id) {
   return (
-    <div class="card">
-      <div class="card-body">init</div>
+    <div class='card'>
+      console.log({id});
+      <div class='card-body' key={id}>{id}</div>
     </div>
   )
 }
