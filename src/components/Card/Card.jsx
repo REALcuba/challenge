@@ -1,10 +1,15 @@
 import React from 'react'
 
-function Card (id) {
+function Card (props) {
   return (
-    <div class='card'>
-      console.log({id});
-      <div class='card-body' key={id}>{id}</div>
+    <div className='card rounded justify-content-center' style={{ width: 250, height: 250 }} key={props.id}>
+      {/* <img
+        className='card-img' src={card.ownedBy} alt=''
+      /> */}
+      <div className='card-body ' key={props.id}>
+        <h3 className='card-text'>{props.text}</h3>
+      </div>
+
     </div>
   )
 }
