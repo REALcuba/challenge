@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { explorePublications } from '../lensQueries/explorePublications'
-// import Card from './Card/Card'
+import { paintCardInfo } from '../components/PaintCardInfo/PaintCardInfo'
 import './style.css'
+// import inbox from '../assets/svg/inbox.svg'
 export default function ExplorePublications (props) {
   const [cards, setCards] = useState([])
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
+  const [hoverImg, setHoverImg] = useState(false)
   // const [img, setImg] = useState()
+  // const [className, setClassName] = useState('')
 
   const init = async () => {
     try {
@@ -22,7 +25,7 @@ export default function ExplorePublications (props) {
       console.log(response)
       // console.log(responseArr)
       setCards(responseArr)
-      setLoading(response.loading)
+      // setLoading(true)
       // setImg(responseArr.profile.picture.original.url)
     } catch (err) {
       console.log(err)
@@ -32,37 +35,42 @@ export default function ExplorePublications (props) {
   useEffect(() => {
     init()
   }, [])
-  useEffect(() => {
-
-  })
 
   return (
 
     <div className='container-fluid row bg-black m-0 justify-content-center'>
 
-      {cards.map((card, index) => {
+      {cards.map((card) => {
         const URL = card.metadata.media[0].original.url
-        console.log(URL)
         const imgUrl = URL => URL.replace('ipfs:', 'https://ipfs.io/ipfs/')
 
-        // setImg(card.profile.picture.original.url)
         return (
+          <div
+            className='card rounded position-relative justify-content-center p-0 m-1' style={{
+              width: 308,
+              height: 308
 
-          <div className='card m-1 rounded justify-content-center' style={{ width: 308, height: 308 }} key={card.id}>
+            }} key={card.id}
+
+            // onMouseLeave={() => { setHoverImg(false) }}
+          >
             <img
-              className='card-img' src={imgUrl(URL)} alt={card.metadata.content}
+              onMouseEnter={() => setHoverImg(card)}
+              className='card-img ' src={imgUrl(URL)} alt={card.metadata.content}
             />
-            {/* <div className='card-body ' key={card.id}>
-              <h3 className='card-text'>{card.profile.name}</h3>
-              <h3 className='card-text'>{card.profile.id}
-              </h3>
-            </div> */}
-            {loading && <div>Loading...</div>}
-          </div>
-        // <Card key={card.id} {...cards} />
+            {hoverImg &&
+              <div
+                className='card bg-dark opacity-50 text-white text-bg-color'
+              >
+                <div className='card-body '>
+                  {paintCardInfo(hoverImg)}
 
+                </div>
+              </div>}
+          </div>
         )
       })}
+
     </div>
   )
 }

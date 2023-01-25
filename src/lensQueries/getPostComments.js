@@ -1,4 +1,4 @@
-import { apolloClient } from './apollo-client';
+import { apolloClient } from './apollo-client'
 // this is showing you how you use it with react for example
 // if your using node or something else you can import using
 // @apollo/client/core!
@@ -353,27 +353,26 @@ const GET_COMMENTS = `
       degreesOfSeparation
     }
   }     
-`;
+`
 
-export const getPostComments = (postId, cursor=null) => {
+export const getPostComments = (postId, cursor = null) => {
   return new Promise(async (resolve, reject) => {
-    try{
+    try {
       const response = await apolloClient.query({
         query: gql(GET_COMMENTS),
         variables: {
           request: {
-            "commentsOf": postId, // The post ID 
-            //publicationTypes: ["POST", "COMMENT", "MIRROR"],            
+            commentsOf: postId, // The post ID
+            // publicationTypes: ["POST", "COMMENT", "MIRROR"],
             limit: 24,
-            cursor:cursor // The cursor to get paginated results, check data.pageInfo.next
+            cursor // The cursor to get paginated results, check data.pageInfo.next
           }
-        },
+        }
       })
       resolve(response)
-    }catch(err){
+    } catch (err) {
       console.trace(err)
       reject(err)
     }
-
   })
 }

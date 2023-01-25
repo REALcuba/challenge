@@ -1,4 +1,4 @@
-import { apolloClient } from './apollo-client';
+import { apolloClient } from './apollo-client'
 // this is showing you how you use it with react for example
 // if your using node or something else you can import using
 // @apollo/client/core!
@@ -167,28 +167,27 @@ const GET_PUBLICATIONS = `
       }
       
       
-`;
+`
 
-export const getUserPosts = (profileId, cursor=null) => {
+export const getUserPosts = (profileId, cursor = null) => {
   return new Promise(async (resolve, reject) => {
-    try{
+    try {
       const response = await apolloClient.query({
         query: gql(GET_PUBLICATIONS),
         variables: {
           request: {
-            profileId:profileId, //The profileID of the account
-            publicationTypes: ["POST"],
+            profileId, // The profileID of the account
+            publicationTypes: ['POST'],
             limit: 24,
-            sources:["5bba5781-78b5-4927-8d2f-122742817583"],
-            cursor:cursor
+            sources: ['5bba5781-78b5-4927-8d2f-122742817583'],
+            cursor
           }
-        },
+        }
       })
       resolve(response)
-    }catch(err){
+    } catch (err) {
       console.trace(err)
       reject(err)
     }
-
   })
 }

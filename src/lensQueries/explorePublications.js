@@ -1,4 +1,4 @@
-import { apolloClient } from './apollo-client';
+import { apolloClient } from './apollo-client'
 // this is showing you how you use it with react for example
 // if your using node or something else you can import using
 // @apollo/client/core!
@@ -274,8 +274,7 @@ fragment ReferenceModuleFields on ReferenceModule {
   }
 }
     
-`;
-
+`
 
 /**
  *     REQUEST CONFIG EXAMPLE
@@ -283,16 +282,16 @@ fragment ReferenceModuleFields on ReferenceModule {
  * const request = {
   sortCriteria: "LATEST",
   noRandomize:true,
-  sources:["5bba5781-78b5-4927-8d2f-122742817583"], //The id of LensAI 
+  sources:["5bba5781-78b5-4927-8d2f-122742817583"], //The id of LensAI
   publicationTypes: ["POST"],
-  cursor:"{\"timestamp\":1,\"offset\":0}", 
+  cursor:"{\"timestamp\":1,\"offset\":0}",
   limit:24
 }
  */
 export const explorePublications = (request) => {
-  return new Promise(async (resolve, reject) => {
-    try{
-      const response = await apolloClient.query({
+  return new Promise((resolve, reject) => {
+    try {
+      const response = apolloClient.query({
         query: gql(GET_PUBLICATIONS),
         variables:
             {
@@ -300,10 +299,9 @@ export const explorePublications = (request) => {
             }
       })
       resolve(response)
-    }catch(err){
+    } catch (err) {
       console.trace(err)
       reject(err)
     }
-
   })
 }

@@ -1,7 +1,13 @@
 .card{
-    display: grid;
+    /* display: grid; */
+    position: absolute;
     align-items: center;
-    background-color: rgb(180, 180, 247);
-    height: 50px;
-    width: 50px;
+    /* background-color: rgb(180, 180, 247); */
+    height: 19em;
+    width: 19em; 
   }
+  .handle{
+    color: rgb(14, 251, 1);
+  }
+
+ 
