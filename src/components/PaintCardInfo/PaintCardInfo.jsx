@@ -12,7 +12,7 @@ export const paintCardInfo = (props) => {
     >
       <strong className='card-text m-1 handle'>@{props.profile.handle}</strong>
       <br />
-      <span className='card-text m-1'>{props.createdAt}</span>
+      <span className='card-text m-1'>Created at: {props.createdAt}</span>
       <br />
       <span className='card-text m-1'><img src={inbox} alt='' />{props.stats.totalAmountOfCollects}
       </span>

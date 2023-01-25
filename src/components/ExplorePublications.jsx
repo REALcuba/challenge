@@ -46,13 +46,11 @@ export default function ExplorePublications (props) {
 
         return (
           <div
-            className='card rounded position-relative justify-content-center p-0 m-1' style={{
+            className='card rounded position-relative  p-0 m-1' style={{
               width: 308,
               height: 308
-
             }} key={card.id}
-
-            // onMouseLeave={() => { setHoverImg(false) }}
+            onMouseLeave={() => { setHoverImg(false) }}
           >
             <img
               onMouseEnter={() => setHoverImg(card)}
