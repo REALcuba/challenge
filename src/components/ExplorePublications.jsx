@@ -45,28 +45,9 @@ export default function ExplorePublications (props) {
         // const URL = card.metadata.media[0].original.url
         // const imgUrl = URL => URL.replace('ipfs:', 'https://ipfs.io/ipfs/')
         return (
-          <div className='card position-relative p-0 m-1' key={card.id}>
+          <div className='card p-0 m-1' key={card.id}>
             <PaintCardInfo key={card.id}>{card}</PaintCardInfo>
           </div>
-          // <PaintCardInfo key={card.id}>{card}</PaintCardInfo>
-        // <div
-        //   className='card rounded position-relative  p-0 m-1' key={card.id}
-        //   // onMouseEnter={() => setHoverImg(paintCardInfo(card))}
-        //   // onMouseLeave={() => { setHoverImg(false) }}
-        // >
-        //   <img
-        //     className='card-img ' src={imgUrl(URL)} alt={card.metadata.content}
-        //   />
-        //   {hoverImg &&
-        //     <div
-        //       className='card opacity-50 img text-white '
-        //     >
-        //       <div className='card bg-dark '>
-        //         {paintCardInfo(card)}
-
-        //       </div>
-        //     </div>}
-        // </div>
         )
       })}
 
