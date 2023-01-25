@@ -1,13 +1,16 @@
 .card{
-    /* display: grid; */
-    position: absolute;
     align-items: center;
-    /* background-color: rgb(180, 180, 247); */
-    height: 19em;
-    width: 19em; 
+    height: 15em;
+    width: 15em; 
   }
   .handle{
-    color: rgb(14, 251, 1);
+    color: rgb(25, 210, 1);
   }
 
- 
+ .card-body{
+  z-index: -1;
+ }
+ .info{
+  z-index: 2;
+  opacity: 0.6;
+ }
